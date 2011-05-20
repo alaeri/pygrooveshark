@@ -135,7 +135,7 @@ Make sure to call <tt class="xref py py-meth docutils literal"><span class="pre"
 <tbody valign="top">
 <tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>period</strong> &#8211; time period</td>
 </tr>
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body">a list of <tt class="xref py py-class docutils literal"><span class="pre">Song</span></tt> objects</td>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body">a generator generates <tt class="xref py py-class docutils literal"><span class="pre">Song</span></tt> objects</td>
 </tr>
 </tbody>
 </table>
@@ -274,7 +274,7 @@ Make sure to call <tt class="xref py py-meth docutils literal"><span class="pre"
 </ul>
 </td>
 </tr>
-<tr class="field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">a list of <tt class="xref py py-class docutils literal"><span class="pre">Song</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Artist</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Album</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Playlist</span></tt> or <tt class="xref py py-class docutils literal"><span class="pre">User</span></tt> objects</p>
+<tr class="field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">a generator generates <tt class="xref py py-class docutils literal"><span class="pre">Song</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Artist</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Album</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Playlist</span></tt> or <tt class="xref py py-class docutils literal"><span class="pre">User</span></tt> objects</p>
 </td>
 </tr>
 </tbody>
@@ -372,7 +372,7 @@ Do not use this class directly.</p>
 
 <dl class="class">
 <dt id="grooveshark.Album">
-<em class="property">class </em><tt class="descclassname">grooveshark.</tt><tt class="descname">Album</tt><big>(</big><em>id</em>, <em>name</em>, <em>artist</em>, <em>cover</em>, <em>connection</em><big>)</big><a class="headerlink" href="#grooveshark.Album" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">grooveshark.</tt><tt class="descname">Album</tt><big>(</big><em>id</em>, <em>name</em>, <em>artist_id</em>, <em>artist_name</em>, <em>cover_url</em>, <em>connection</em><big>)</big><a class="headerlink" href="#grooveshark.Album" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents an album.
 Do not use this class directly.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -382,8 +382,9 @@ Do not use this class directly.</p>
 <tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>id</strong> &#8211; internal album id</li>
 <li><strong>name</strong> &#8211; name</li>
-<li><strong>artist</strong> &#8211; artist as <tt class="xref py py-class docutils literal"><span class="pre">Artist</span></tt> object</li>
-<li><strong>cover</strong> &#8211; cover as <tt class="xref py py-class docutils literal"><span class="pre">Picture</span></tt> object</li>
+<li><strong>artist_id</strong> &#8211; artist&#8217;s id to generate an <tt class="xref py py-class docutils literal"><span class="pre">Artist</span></tt> object</li>
+<li><strong>artist_name</strong> &#8211; artist&#8217;s name to generate an <tt class="xref py py-class docutils literal"><span class="pre">Artist</span></tt> object</li>
+<li><strong>cover_url</strong> &#8211; album&#8217;s cover to generate an <tt class="xref py py-class docutils literal"><span class="pre">Album</span></tt> object</li>
 <li><strong>connection</strong> &#8211; underlying <tt class="xref py py-class docutils literal"><span class="pre">Connection</span></tt> object</li>
 </ul>
 </td>
@@ -417,7 +418,7 @@ Do not use this class directly.</p>
 <dl class="attribute">
 <dt id="grooveshark.Album.songs">
 <tt class="descname">songs</tt><a class="headerlink" href="#grooveshark.Album.songs" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of album&#8217;s songs as <tt class="xref py py-class docutils literal"><span class="pre">Song</span></tt> objects</p>
+<dd><p>generator generates album&#8217;s songs as <tt class="xref py py-class docutils literal"><span class="pre">Song</span></tt> objects</p>
 </dd></dl>
 
 </dd></dl>
@@ -455,20 +456,20 @@ Do not use this class directly.</p>
 <dl class="attribute">
 <dt id="grooveshark.Artist.similar">
 <tt class="descname">similar</tt><a class="headerlink" href="#grooveshark.Artist.similar" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of similar artists as <tt class="xref py py-class docutils literal"><span class="pre">Artist</span></tt> objects</p>
+<dd><p>generator generates similar artists as <tt class="xref py py-class docutils literal"><span class="pre">Artist</span></tt> objects</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="grooveshark.Artist.songs">
 <tt class="descname">songs</tt><a class="headerlink" href="#grooveshark.Artist.songs" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of artist&#8217;s songs as <tt class="xref py py-class docutils literal"><span class="pre">Song</span></tt> objects</p>
+<dd><p>generator generates artist&#8217;s songs as <tt class="xref py py-class docutils literal"><span class="pre">Song</span></tt> objects</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="grooveshark.Song">
-<em class="property">class </em><tt class="descclassname">grooveshark.</tt><tt class="descname">Song</tt><big>(</big><em>id</em>, <em>name</em>, <em>artist</em>, <em>album</em>, <em>track</em>, <em>duration</em>, <em>popularity</em>, <em>connection</em><big>)</big><a class="headerlink" href="#grooveshark.Song" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">grooveshark.</tt><tt class="descname">Song</tt><big>(</big><em>id</em>, <em>name</em>, <em>artist_id</em>, <em>artist_name</em>, <em>album_id</em>, <em>album_name</em>, <em>cover_url</em>, <em>track</em>, <em>duration</em>, <em>popularity</em>, <em>connection</em><big>)</big><a class="headerlink" href="#grooveshark.Song" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents a song.
 Do not use this class directly.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -478,8 +479,11 @@ Do not use this class directly.</p>
 <tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>id</strong> &#8211; internal song id</li>
 <li><strong>name</strong> &#8211; name</li>
-<li><strong>artist</strong> &#8211; artist as <tt class="xref py py-class docutils literal"><span class="pre">Artist</span></tt> object</li>
-<li><strong>album</strong> &#8211; album as <tt class="xref py py-class docutils literal"><span class="pre">Album</span></tt> object</li>
+<li><strong>artist_id</strong> &#8211; artist&#8217;s id to generate an <tt class="xref py py-class docutils literal"><span class="pre">Artist</span></tt> object</li>
+<li><strong>artist_name</strong> &#8211; artist&#8217;s name to generate an <tt class="xref py py-class docutils literal"><span class="pre">Artist</span></tt> object</li>
+<li><strong>album_id</strong> &#8211; album&#8217;s id to generate an <tt class="xref py py-class docutils literal"><span class="pre">Album</span></tt> object</li>
+<li><strong>album_name</strong> &#8211; album&#8217;s name to generate an <tt class="xref py py-class docutils literal"><span class="pre">Album</span></tt> object</li>
+<li><strong>cover_url</strong> &#8211; album&#8217;s cover to generate an <tt class="xref py py-class docutils literal"><span class="pre">Album</span></tt> object</li>
 <li><strong>track</strong> &#8211; track number</li>
 <li><strong>duration</strong> &#8211; estimate song duration</li>
 <li><strong>popularity</strong> &#8211; populaity</li>
@@ -541,7 +545,7 @@ Do not use this class directly.</p>
 
 <dl class="class">
 <dt id="grooveshark.User">
-<em class="property">class </em><tt class="descclassname">grooveshark.</tt><tt class="descname">User</tt><big>(</big><em>id</em>, <em>username</em>, <em>picture</em>, <em>city</em>, <em>sex</em>, <em>country</em>, <em>connection</em>, <em>complete=False</em><big>)</big><a class="headerlink" href="#grooveshark.User" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">grooveshark.</tt><tt class="descname">User</tt><big>(</big><em>id</em>, <em>username</em>, <em>picture_url</em>, <em>city</em>, <em>sex</em>, <em>country</em>, <em>connection</em>, <em>complete=False</em><big>)</big><a class="headerlink" href="#grooveshark.User" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents a user.
 Do not use this class directly.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -602,8 +606,91 @@ Do not use this class directly.</p>
 
 <dl class="class">
 <dt id="grooveshark.Playlist">
-<em class="property">class </em><tt class="descclassname">grooveshark.</tt><tt class="descname">Playlist</tt><big>(</big><em>id</em>, <em>name</em>, <em>user</em>, <em>variety</em>, <em>num_artists</em>, <em>num_songs</em>, <em>about</em>, <em>rank</em>, <em>score</em>, <em>connection</em><big>)</big><a class="headerlink" href="#grooveshark.Playlist" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">class </em><tt class="descclassname">grooveshark.</tt><tt class="descname">Playlist</tt><big>(</big><em>id</em>, <em>name</em>, <em>user_id</em>, <em>user_name</em>, <em>variety</em>, <em>num_artists</em>, <em>num_songs</em>, <em>about</em>, <em>rank</em>, <em>score</em>, <em>connection</em><big>)</big><a class="headerlink" href="#grooveshark.Playlist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a playlist.
+Do not use this class directly.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>id</strong> &#8211; internal playlist id</li>
+<li><strong>name</strong> &#8211; name</li>
+<li><strong>user_id</strong> &#8211; user&#8217;s id who owns the playlist</li>
+<li><strong>user_name</strong> &#8211; user&#8217;s name who owns the playlist</li>
+<li><strong>variety</strong> &#8211; variety</li>
+<li><strong>num_artists</strong> &#8211; number of artists</li>
+<li><strong>num_songs</strong> &#8211; number of songs</li>
+<li><strong>about</strong> &#8211; about</li>
+<li><strong>rank</strong> &#8211; song&#8217;s rank</li>
+<li><strong>score</strong> &#8211; song&#8217;s score</li>
+<li><strong>connection</strong> &#8211; underlying <tt class="xref py py-class docutils literal"><span class="pre">Connection</span></tt> object</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="grooveshark.Playlist.about">
+<tt class="descname">about</tt><a class="headerlink" href="#grooveshark.Playlist.about" title="Permalink to this definition">¶</a></dt>
+<dd><p>about</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="grooveshark.Playlist.id">
+<tt class="descname">id</tt><a class="headerlink" href="#grooveshark.Playlist.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>internal playlist id</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="grooveshark.Playlist.name">
+<tt class="descname">name</tt><a class="headerlink" href="#grooveshark.Playlist.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>name</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="grooveshark.Playlist.num_artists">
+<tt class="descname">num_artists</tt><a class="headerlink" href="#grooveshark.Playlist.num_artists" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of artists</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="grooveshark.Playlist.num_songs">
+<tt class="descname">num_songs</tt><a class="headerlink" href="#grooveshark.Playlist.num_songs" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of songs</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="grooveshark.Playlist.rank">
+<tt class="descname">rank</tt><a class="headerlink" href="#grooveshark.Playlist.rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>playlist&#8217;s rank</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="grooveshark.Playlist.score">
+<tt class="descname">score</tt><a class="headerlink" href="#grooveshark.Playlist.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>playlist&#8217;s score</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="grooveshark.Playlist.songs">
+<tt class="descname">songs</tt><a class="headerlink" href="#grooveshark.Playlist.songs" title="Permalink to this definition">¶</a></dt>
+<dd><p>generator generates playlist&#8217;s <tt class="xref py py-class docutils literal"><span class="pre">Song</span></tt> objects</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="grooveshark.Playlist.user">
+<tt class="descname">user</tt><a class="headerlink" href="#grooveshark.Playlist.user" title="Permalink to this definition">¶</a></dt>
+<dd><p>user owns the playlist as <tt class="xref py py-class docutils literal"><span class="pre">User</span></tt> object</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="grooveshark.Playlist.variety">
+<tt class="descname">variety</tt><a class="headerlink" href="#grooveshark.Playlist.variety" title="Permalink to this definition">¶</a></dt>
+<dd><p>variety of songs</p>
+</dd></dl>
+
+</dd></dl>
 
 <dl class="class">
 <dt id="grooveshark.Radio">
