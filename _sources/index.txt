@@ -6,30 +6,24 @@
 Welcome to Grooveshark-Python's documentation!
 ==============================================
 
-.. autoclass:: grooveshark.Client
+.. autoclass:: grooveshark.core.client.Client
    :members:
 
-.. autoclass:: grooveshark.Picture
+.. autoclass:: grooveshark.classes.Picture
    :members:
 
-.. autoclass:: grooveshark.Stream
+.. autoclass:: grooveshark.classes.Stream
    :members:
 
-.. autoclass:: grooveshark.Album
+.. autoclass:: grooveshark.classes.Album
    :members:
 
-.. autoclass:: grooveshark.Artist
+.. autoclass:: grooveshark.classes.Artist
    :members:
 
-.. autoclass:: grooveshark.Song
+.. autoclass:: grooveshark.classes.Song
    :members:
 
-.. autoclass:: grooveshark.User
-   :members:
-
-.. autoclass:: grooveshark.Playlist
-   :members:
-
-.. autoclass:: grooveshark.Radio
+.. autoclass:: grooveshark.classes.Radio
    :members:
 
