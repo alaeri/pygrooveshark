@@ -51,7 +51,7 @@
 <dd><p>A client for Grooveshark&#8217;s API which supports:</p>
 <ul class="simple">
 <li>radio (songs by genre)</li>
-<li>search for songs, artists, albums, playlists and users</li>
+<li>search for songs, artists and albums</li>
 <li>popular songs</li>
 </ul>
 <table class="docutils field-list" frame="void" rules="none">
@@ -192,7 +192,7 @@ Make sure to call <tt class="xref py py-meth docutils literal"><span class="pre"
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_RNB</span></tt></td>
-<td>R&amp;;B</td>
+<td>R and B</td>
 </tr>
 <tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_JAZZ</span></tt></td>
 <td>Jazz</td>
@@ -258,7 +258,7 @@ Make sure to call <tt class="xref py py-meth docutils literal"><span class="pre"
 <dl class="method">
 <dt id="grooveshark.core.client.Client.search">
 <tt class="descname">search</tt><big>(</big><em>query</em>, <em>type='Songs'</em><big>)</big><a class="headerlink" href="#grooveshark.core.client.Client.search" title="Permalink to this definition">¶</a></dt>
-<dd><p>Search for songs, artists, albums, playlists, users and events.</p>
+<dd><p>Search for songs, artists and albums.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -269,7 +269,7 @@ Make sure to call <tt class="xref py py-meth docutils literal"><span class="pre"
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">a generator generates <tt class="xref py py-class docutils literal"><span class="pre">Song</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Artist</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Album</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Playlist</span></tt> or <tt class="xref py py-class docutils literal"><span class="pre">User</span></tt> objects</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">a generator generates <tt class="xref py py-class docutils literal"><span class="pre">Song</span></tt>, <tt class="xref py py-class docutils literal"><span class="pre">Artist</span></tt> and <tt class="xref py py-class docutils literal"><span class="pre">Album</span></tt> objects</p>
 </td>
 </tr>
 </tbody>
@@ -294,12 +294,6 @@ Make sure to call <tt class="xref py py-meth docutils literal"><span class="pre"
 </tr>
 <tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">SEARCH_TYPE_ALBUMS</span></tt></td>
 <td>Search for albums</td>
-</tr>
-<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">SEARCH_TYPE_PLAYLISTS</span></tt></td>
-<td>Search for playlists</td>
-</tr>
-<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">SEARCH_TYPE_USERS</span></tt></td>
-<td>Search for users</td>
 </tr>
 </tbody>
 </table>
