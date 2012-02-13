@@ -303,7 +303,7 @@ Make sure to call <tt class="xref py py-meth docutils literal"><span class="pre"
 
 <dl class="class">
 <dt id="grooveshark.classes.Picture">
-<em class="property">class </em><tt class="descclassname">grooveshark.classes.</tt><tt class="descname">Picture</tt><big>(</big><em>url</em><big>)</big><a class="headerlink" href="#grooveshark.classes.Picture" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">grooveshark.classes.</tt><tt class="descname">Picture</tt><big>(</big><em>url</em>, <em>connection</em><big>)</big><a class="headerlink" href="#grooveshark.classes.Picture" title="Permalink to this definition">¶</a></dt>
 <dd><p>Could be an album cover or a user picture.
 Do not use this class directly.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -399,6 +399,14 @@ Do not use this class directly.</p>
 <dd><p>album cover as <tt class="xref py py-class docutils literal"><span class="pre">Picture</span></tt> object</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="grooveshark.classes.Album.export">
+<tt class="descname">export</tt><big>(</big><big>)</big><a class="headerlink" href="#grooveshark.classes.Album.export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary with all song information.
+Use the <tt class="xref py py-meth docutils literal"><span class="pre">from_export()</span></tt> method to recreate the
+<tt class="xref py py-class docutils literal"><span class="pre">Song</span></tt> object.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="grooveshark.classes.Album.id">
 <tt class="descname">id</tt><a class="headerlink" href="#grooveshark.classes.Album.id" title="Permalink to this definition">¶</a></dt>
@@ -437,6 +445,14 @@ Do not use this class directly.</p>
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="grooveshark.classes.Artist.export">
+<tt class="descname">export</tt><big>(</big><big>)</big><a class="headerlink" href="#grooveshark.classes.Artist.export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary with all song information.
+Use the <tt class="xref py py-meth docutils literal"><span class="pre">from_export()</span></tt> method to recreate the
+<tt class="xref py py-class docutils literal"><span class="pre">Song</span></tt> object.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="grooveshark.classes.Artist.id">
 <tt class="descname">id</tt><a class="headerlink" href="#grooveshark.classes.Artist.id" title="Permalink to this definition">¶</a></dt>
@@ -507,6 +523,14 @@ Do not use this class directly.</p>
 <dd><p>estimate song duration</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="grooveshark.classes.Song.export">
+<tt class="descname">export</tt><big>(</big><big>)</big><a class="headerlink" href="#grooveshark.classes.Song.export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary with all song information.
+Use the <tt class="xref py py-meth docutils literal"><span class="pre">from_export()</span></tt> method to recreate the
+<tt class="xref py py-class docutils literal"><span class="pre">Song</span></tt> object.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="grooveshark.classes.Song.id">
 <tt class="descname">id</tt><a class="headerlink" href="#grooveshark.classes.Song.id" title="Permalink to this definition">¶</a></dt>
@@ -522,7 +546,7 @@ Do not use this class directly.</p>
 <dl class="attribute">
 <dt id="grooveshark.classes.Song.popularity">
 <tt class="descname">popularity</tt><a class="headerlink" href="#grooveshark.classes.Song.popularity" title="Permalink to this definition">¶</a></dt>
-<dd><p>populaity</p>
+<dd><p>popularity</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -541,7 +565,7 @@ Do not use this class directly.</p>
 
 <dl class="class">
 <dt id="grooveshark.classes.Radio">
-<em class="property">class </em><tt class="descclassname">grooveshark.classes.</tt><tt class="descname">Radio</tt><big>(</big><em>artists</em>, <em>radio</em>, <em>connection</em><big>)</big><a class="headerlink" href="#grooveshark.classes.Radio" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">grooveshark.classes.</tt><tt class="descname">Radio</tt><big>(</big><em>artists</em>, <em>radio</em>, <em>connection</em>, <em>recent_artists=</em><span class="optional">[</span><span class="optional">]</span>, <em>songs_already_seen=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#grooveshark.classes.Radio" title="Permalink to this definition">¶</a></dt>
 <dd><p>Listen to songs by specifc genre.
 Do not use this class directly.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -557,6 +581,14 @@ Do not use this class directly.</p>
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="grooveshark.classes.Radio.export">
+<tt class="descname">export</tt><big>(</big><big>)</big><a class="headerlink" href="#grooveshark.classes.Radio.export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary with all song information.
+Use the <tt class="xref py py-meth docutils literal"><span class="pre">from_export()</span></tt> method to recreate the
+<tt class="xref py py-class docutils literal"><span class="pre">Song</span></tt> object.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="grooveshark.classes.Radio.song">
 <tt class="descname">song</tt><a class="headerlink" href="#grooveshark.classes.Radio.song" title="Permalink to this definition">¶</a></dt>
@@ -605,7 +637,7 @@ Do not use this class directly.</p>
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2011, linuxmaxi.
+        &copy; Copyright 2011, koehlma.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
     </div>
   </body>
