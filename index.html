@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to Grooveshark-Python’s documentation! &mdash; Grooveshark-Python 2.0 documentation</title>
+    <title>Welcome to Grooveshark-Python’s documentation! &mdash; Grooveshark-Python 3.0d documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '2.0',
+        VERSION:     '3.0d',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Grooveshark-Python 2.0 documentation" href="#" /> 
+    <link rel="top" title="Grooveshark-Python 3.0d documentation" href="#" /> 
   </head>
   <body>
     <div class="related">
@@ -34,7 +34,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li><a href="#">Grooveshark-Python 2.0 documentation</a> &raquo;</li> 
+        <li><a href="#">Grooveshark-Python 3.0d documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -46,8 +46,8 @@
   <div class="section" id="welcome-to-grooveshark-python-s-documentation">
 <h1>Welcome to Grooveshark-Python&#8217;s documentation!<a class="headerlink" href="#welcome-to-grooveshark-python-s-documentation" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="grooveshark.core.client.Client">
-<em class="property">class </em><tt class="descclassname">grooveshark.core.client.</tt><tt class="descname">Client</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#grooveshark.core.client.Client" title="Permalink to this definition">¶</a></dt>
+<dt id="grooveshark.Client">
+<em class="property">class </em><tt class="descclassname">grooveshark.</tt><tt class="descname">Client</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#grooveshark.Client" title="Permalink to this definition">¶</a></dt>
 <dd><p>A client for Grooveshark&#8217;s API which supports:</p>
 <ul class="simple">
 <li>radio (songs by genre)</li>
@@ -59,9 +59,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>session</strong> &#8211; stored session information as returned by <tt class="xref py py-meth docutils literal"><span class="pre">init_session()</span></tt> method.</li>
-<li><strong>token</strong> &#8211; stored token information as returned by <tt class="xref py py-meth docutils literal"><span class="pre">init_token()</span></tt> method.</li>
-<li><strong>queue_id</strong> &#8211; stored queue id as returned by <tt class="xref py py-meth docutils literal"><span class="pre">init_queue()</span></tt> method.</li>
+<li><strong>session</strong> &#8211; a <tt class="xref py py-class docutils literal"><span class="pre">Session</span></tt> object with session information.</li>
 <li><strong>proxies</strong> &#8211; dictionary mapping protocol to proxy.</li>
 </ul>
 </td>
@@ -69,9 +67,9 @@
 </tbody>
 </table>
 <dl class="method">
-<dt id="grooveshark.core.client.Client.init">
-<tt class="descname">init</tt><big>(</big><big>)</big><a class="headerlink" href="#grooveshark.core.client.Client.init" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fetch Grooveshark&#8217;s session and token.</p>
+<dt id="grooveshark.Client.init">
+<tt class="descname">init</tt><big>(</big><big>)</big><a class="headerlink" href="#grooveshark.Client.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch Grooveshark&#8217;s token and queue id.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -83,55 +81,21 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="grooveshark.core.client.Client.init_queue">
-<tt class="descname">init_queue</tt><big>(</big><big>)</big><a class="headerlink" href="#grooveshark.core.client.Client.init_queue" title="Permalink to this definition">¶</a></dt>
+<dt id="grooveshark.Client.init_queue">
+<tt class="descname">init_queue</tt><big>(</big><big>)</big><a class="headerlink" href="#grooveshark.Client.init_queue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initiate queue.
-Make sure to call <tt class="xref py py-meth docutils literal"><span class="pre">init_session()</span></tt> and <tt class="xref py py-meth docutils literal"><span class="pre">init_token()</span></tt> first.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">queue_id</td>
-</tr>
-</tbody>
-</table>
-<p>You can store the returned queue_id and use it again over the <em>queue_id</em> argument of the <tt class="xref py py-class docutils literal"><span class="pre">Client</span></tt> class.</p>
+Make sure to call <tt class="xref py py-meth docutils literal"><span class="pre">init_token()</span></tt> first.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="grooveshark.core.client.Client.init_session">
-<tt class="descname">init_session</tt><big>(</big><big>)</big><a class="headerlink" href="#grooveshark.core.client.Client.init_session" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fetch Grooveshark&#8217;s session.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple: (session, secret, country, user)</td>
-</tr>
-</tbody>
-</table>
-<p>You can store the returned tuple and use it again over the <em>session</em> argument of the <tt class="xref py py-class docutils literal"><span class="pre">Client</span></tt> class.</p>
+<dt id="grooveshark.Client.init_token">
+<tt class="descname">init_token</tt><big>(</big><big>)</big><a class="headerlink" href="#grooveshark.Client.init_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch Grooveshark&#8217;s communication token.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="grooveshark.core.client.Client.init_token">
-<tt class="descname">init_token</tt><big>(</big><big>)</big><a class="headerlink" href="#grooveshark.core.client.Client.init_token" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fetch Grooveshark&#8217;s communication token.
-Make sure to call <tt class="xref py py-meth docutils literal"><span class="pre">init_session()</span></tt> first.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple: (token, token_time)</td>
-</tr>
-</tbody>
-</table>
-<p>You can store the returned tuple and use it again over the <em>token</em> argument of the <tt class="xref py py-class docutils literal"><span class="pre">Client</span></tt> class.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="grooveshark.core.client.Client.popular">
-<tt class="descname">popular</tt><big>(</big><em>period='daily'</em><big>)</big><a class="headerlink" href="#grooveshark.core.client.Client.popular" title="Permalink to this definition">¶</a></dt>
+<dt id="grooveshark.Client.popular">
+<tt class="descname">popular</tt><big>(</big><em>period='daily'</em><big>)</big><a class="headerlink" href="#grooveshark.Client.popular" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get popular songs.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -155,10 +119,10 @@ Make sure to call <tt class="xref py py-meth docutils literal"><span class="pre"
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">POPULAR_TYPE_DAILY</span></tt></td>
+<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">Client.DAILY</span></tt></td>
 <td>Popular songs of this day</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">POPULAR_TYPE_MONTHLY</span></tt></td>
+<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">Client.MONTHLY</span></tt></td>
 <td>Popular songs of this month</td>
 </tr>
 </tbody>
@@ -166,8 +130,8 @@ Make sure to call <tt class="xref py py-meth docutils literal"><span class="pre"
 </dd></dl>
 
 <dl class="method">
-<dt id="grooveshark.core.client.Client.radio">
-<tt class="descname">radio</tt><big>(</big><em>radio</em><big>)</big><a class="headerlink" href="#grooveshark.core.client.Client.radio" title="Permalink to this definition">¶</a></dt>
+<dt id="grooveshark.Client.radio">
+<tt class="descname">radio</tt><big>(</big><em>radio</em><big>)</big><a class="headerlink" href="#grooveshark.Client.radio" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get songs belong to a specific genre.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -180,6 +144,8 @@ Make sure to call <tt class="xref py py-meth docutils literal"><span class="pre"
 </tbody>
 </table>
 <p>Genres:</p>
+<p>This list is incomplete because there isn&#8217;t a English translation for some genres.
+Please look at the sources for all possible Tags.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="53%" />
@@ -191,64 +157,64 @@ Make sure to call <tt class="xref py py-meth docutils literal"><span class="pre"
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_RNB</span></tt></td>
+<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_RNB</span></tt></td>
 <td>R and B</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_JAZZ</span></tt></td>
+<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_JAZZ</span></tt></td>
 <td>Jazz</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_ROCK</span></tt></td>
+<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_ROCK</span></tt></td>
 <td>Rock</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_CLASSICAL</span></tt></td>
+<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_CLASSICAL</span></tt></td>
 <td>Classical</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_DUBSTEP</span></tt></td>
+<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_DUBSTEP</span></tt></td>
 <td>Dubstep</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_BLUES</span></tt></td>
+<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_BLUES</span></tt></td>
 <td>Blues</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_FOLK</span></tt></td>
+<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_FOLK</span></tt></td>
 <td>Folk</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_ELECTRONICA</span></tt></td>
+<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_ELECTRONICA</span></tt></td>
 <td>Electronica</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_CHRISTMAS</span></tt></td>
+<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_CHRISTMAS</span></tt></td>
 <td>Christmas</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_OLDIES</span></tt></td>
+<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_OLDIES</span></tt></td>
 <td>Oldies</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_COUNTRY</span></tt></td>
+<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_COUNTRY</span></tt></td>
 <td>Country</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_EXPERIMENTAL</span></tt></td>
+<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_EXPERIMENTAL</span></tt></td>
 <td>Experimental</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_POP</span></tt></td>
+<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_POP</span></tt></td>
 <td>Pop</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_INDIE</span></tt></td>
+<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_INDIE</span></tt></td>
 <td>Indie</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_BLUEGRASS</span></tt></td>
+<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_BLUEGRASS</span></tt></td>
 <td>Bluegrass</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_RAP</span></tt></td>
+<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_RAP</span></tt></td>
 <td>Rap</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_AMBIENT</span></tt></td>
+<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_AMBIENT</span></tt></td>
 <td>Ambient</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_TRANCE</span></tt></td>
+<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_TRANCE</span></tt></td>
 <td>Trance</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_REGGAE</span></tt></td>
+<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_REGGAE</span></tt></td>
 <td>Reggae</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">RADIO_METAL</span></tt></td>
+<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">Radio.GENRE_METAL</span></tt></td>
 <td>Metal</td>
 </tr>
 </tbody>
@@ -256,8 +222,8 @@ Make sure to call <tt class="xref py py-meth docutils literal"><span class="pre"
 </dd></dl>
 
 <dl class="method">
-<dt id="grooveshark.core.client.Client.search">
-<tt class="descname">search</tt><big>(</big><em>query</em>, <em>type='Songs'</em><big>)</big><a class="headerlink" href="#grooveshark.core.client.Client.search" title="Permalink to this definition">¶</a></dt>
+<dt id="grooveshark.Client.search">
+<tt class="descname">search</tt><big>(</big><em>query</em>, <em>type='Songs'</em><big>)</big><a class="headerlink" href="#grooveshark.Client.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Search for songs, artists and albums.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -265,7 +231,7 @@ Make sure to call <tt class="xref py py-meth docutils literal"><span class="pre"
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>query</strong> &#8211; search string</li>
-<li><strong>radio</strong> &#8211; type to search for</li>
+<li><strong>type</strong> &#8211; type to search for</li>
 </ul>
 </td>
 </tr>
@@ -286,13 +252,13 @@ Make sure to call <tt class="xref py py-meth docutils literal"><span class="pre"
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">SEARCH_TYPE_SONGS</span></tt></td>
+<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">Client.SONGS</span></tt></td>
 <td>Search for songs</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">SEARCH_TYPE_ARTISTS</span></tt></td>
+<tr class="row-odd"><td><tt class="xref py py-const docutils literal"><span class="pre">Client.ARTISTS</span></tt></td>
 <td>Search for artists</td>
 </tr>
-<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">SEARCH_TYPE_ALBUMS</span></tt></td>
+<tr class="row-even"><td><tt class="xref py py-const docutils literal"><span class="pre">Client.ALBUMS</span></tt></td>
 <td>Search for albums</td>
 </tr>
 </tbody>
@@ -402,9 +368,9 @@ Do not use this class directly.</p>
 <dl class="method">
 <dt id="grooveshark.classes.Album.export">
 <tt class="descname">export</tt><big>(</big><big>)</big><a class="headerlink" href="#grooveshark.classes.Album.export" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a dictionary with all song information.
+<dd><p>Returns a dictionary with all album information.
 Use the <tt class="xref py py-meth docutils literal"><span class="pre">from_export()</span></tt> method to recreate the
-<tt class="xref py py-class docutils literal"><span class="pre">Song</span></tt> object.</p>
+<tt class="xref py py-class docutils literal"><span class="pre">Album</span></tt> object.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -448,9 +414,9 @@ Do not use this class directly.</p>
 <dl class="method">
 <dt id="grooveshark.classes.Artist.export">
 <tt class="descname">export</tt><big>(</big><big>)</big><a class="headerlink" href="#grooveshark.classes.Artist.export" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a dictionary with all song information.
+<dd><p>Returns a dictionary with all artist information.
 Use the <tt class="xref py py-meth docutils literal"><span class="pre">from_export()</span></tt> method to recreate the
-<tt class="xref py py-class docutils literal"><span class="pre">Song</span></tt> object.</p>
+<tt class="xref py py-class docutils literal"><span class="pre">Artist</span></tt> object.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -633,12 +599,12 @@ Use the <tt class="xref py py-meth docutils literal"><span class="pre">from_expo
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li><a href="#">Grooveshark-Python 2.0 documentation</a> &raquo;</li> 
+        <li><a href="#">Grooveshark-Python 3.0d documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2011, koehlma.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+        &copy; Copyright 2012, Maximilian Köhl.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
 </html>
