@@ -25,5 +25,5 @@ client.init()
 
 for song in client.search(sys.argv[1]):
     print(sys.argv[1])
-    print(song)
+    print(song.__str__().encode("utf-8"))
     subprocess.call(['mplayer', song.stream.url])
